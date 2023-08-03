@@ -91,7 +91,7 @@ places365
 ```
 
 
-Structure for Flower102
+Structure for Flowers102
 ```
 flowers102
 ├── jpg
