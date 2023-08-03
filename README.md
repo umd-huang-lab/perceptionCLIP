@@ -1,11 +1,11 @@
 # More Context, Less Distraction: Visual Classification by Inferring and Conditioning on Contextual Attributes
 
-by [Bang An*](https://arxiv.org/pdf/2308.01313.pdf), [Sicheng Zhu*](https://schzhu.github.io/)
+by [Bang An*](https://bangann.github.io/), [Sicheng Zhu*](https://schzhu.github.io/)
 , [Michael-Andrei Panaitescu-Liess](https://scholar.google.se/citations?user=MOP6lhkAAAAJ&hl=lv)
 , [Chaithanya Kumar Mummadi](https://scholar.google.com/citations?user=XJLtaG4AAAAJ&hl=en)
 , [Furong Huang](http://furong-huang.com/)
 
-[[Paper](https://bangann.github.io/perceptionclip.pdf)] [[Twitter](https://twitter.com/furongh/status/1685424108748861440?s=20)]
+[[Paper](https://arxiv.org/pdf/2308.01313.pdf)] [[Twitter](https://twitter.com/furongh/status/1685424108748861440?s=20)]
 
 ## About
 
