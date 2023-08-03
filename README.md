@@ -8,6 +8,7 @@ by [Bang An*](https://bangann.github.io/), [Sicheng Zhu*](https://schzhu.github.
 [[Paper](https://arxiv.org/pdf/2308.01313.pdf)] [[Twitter](https://twitter.com/furongh/status/1685424108748861440?s=20)]
 
 ## About
+<img src="intro.png" alt="Alt text" width="100%" />
 
 CLIP, as a foundational vision language model, is widely used in zero-shot image classification due
 to its ability to understand various visual concepts and natural language descriptions. However, how
