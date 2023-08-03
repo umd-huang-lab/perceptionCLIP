@@ -41,7 +41,7 @@ export PYTHONPATH="$PYTHONPATH:$PWD"
 
 ### Datasets
 
-Please link all datasets to `./datasets/data`. Please refer to `DATA.md` for the structure of
+Create dictionary `./datasets/data` and link all datasets to `./datasets/data`. Please refer to `DATA.md` for the structure of
 dataset dictionaries.
 Here's an example of how to create a symbolic link:
 
