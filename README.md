@@ -8,6 +8,7 @@ by [Bang An*](https://bangann.github.io/), [Sicheng Zhu*](https://schzhu.github.
 [[Paper](https://arxiv.org/pdf/2308.01313.pdf)] [[Twitter](https://twitter.com/furongh/status/1685424108748861440?s=20)]
 
 ## About
+
 <img src="intro.png" alt="Alt text" width="100%" />
 
 CLIP, as a foundational vision language model, is widely used in zero-shot image classification due
@@ -41,7 +42,8 @@ export PYTHONPATH="$PYTHONPATH:$PWD"
 
 ### Datasets
 
-Create dictionary `./datasets/data` and link all datasets to `./datasets/data`. Please refer to `DATA.md` for the structure of
+Create dictionary `./datasets/data` and link all datasets to `./datasets/data`. Please refer
+to `DATA.md` for the structure of
 dataset dictionaries.
 Here's an example of how to create a symbolic link:
 
@@ -153,8 +155,17 @@ python src/zero_shot_inference/perceptionclip_two_step.py --model=RN50 --dataset
 ```
 
 ## Visualizations
-In order to see which part of the image the model focuses on when doing classification, we apply Grad-CAM to the softmax output to visualize the salient pixels.
-Note that this is different from using attentions for visualizations. Please see code and details in `./visualization`.
+
+We use Grad-CAM for visualizations. Specifically, we consider the softmax output of the target class 
+and do backpropagation until the targeted layer. 
+Note that this is different from using attentions for visualizations.
+We use such visualizations to see if the model relies more on the core features when the description of the spurious ones is given while doing
+classification.
+Also, this way, adding a spurious attribute’s description won’t really make the model look at it
+when classifying because all the descriptions (for all classes) will contain that attribute.
+Please see code and details
+in `./visualization`.
+
 ## Acknowledgements
 
 This project is based on the following open-source projects. We thank their
