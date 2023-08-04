@@ -59,6 +59,7 @@ Here's a brief intro of the major components of the code:
 * `./scripts` contains all the running scripts.
 * `./replicate_runs.sh` This script calls other scripts in the `./scripts` directory with the
   necessary parameters to replicate our experiments.
+* `./visualizations` contains the code for visualizations.
 
 To replicate all our experiments, please refer to `./replicate_runs.sh`. Below, we provide a few
 examples demonstrating how to run the code using commands.
@@ -151,6 +152,9 @@ python src/zero_shot_inference/perceptionclip_two_step.py --model=RN50 --dataset
 python src/zero_shot_inference/perceptionclip_two_step.py --model=RN50 --dataset=Waterbirds --main_template=waterbirds_main_template --factor_templates=waterbirds_factor_templates --factors=background --infer_mode=0 --temperature=1 --eval_group=True --eval_trainset=True --save_name=waterbirds_ours_wy_RN50_factor
 ```
 
+## Visualizations
+In order to see which part of the image the model focuses on when doing classification, we apply Grad-CAM to the softmax output to visualize the salient pixels.
+Note that this is different from using attentions for visualizations. Please see code and details in `./visualization`.
 ## Acknowledgements
 
 This project is based on the following open-source projects. We thank their
