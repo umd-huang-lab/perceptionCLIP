@@ -6,18 +6,20 @@ food_main_template = [
     lambda c: f'a photo of {c}, a type of food',
 ]
 
+
 food_factor_templates = {
-    "cuisines": [
-        ", African cuisine",
-        ", American cuisine",
-        ", Asian cuisine",
-        ", European cuisine",
-        ", Oceanic cuisine",
-    ],
-    "condition": [
-        "",
-        ", cool",
-        ", nice",
-        ", weird",
-    ],
+    "cuisines": {
+        "others": [""],
+        "african": ["African cuisine"],
+        "american": ["American cuisine"],
+        "asian": ["Asian cuisine"],
+        "european": ["European cuisine"],
+        "oceanic": ["Oceanic cuisine"],
+    },
+    "condition": {
+        "normal": [""],
+        "cool": ["cool", "stylish", "trendy"],
+        "nice": ["nice", "pleasant", "good-looking"],
+        "weird": ["weird", "odd", "unusual"],
+    },
 }

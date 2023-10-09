@@ -6,20 +6,21 @@ eurosat_main_template = [
     lambda c: f'a centered satellite photo of {c}',
 ]
 
-eurosat_factor_templates = {
-    "source": [
-        "",
-        ", by NASA",
-        ', by Google Earth',
-    ],
 
-    "condition": [
-        "",
-        ", cool",
-        ", nice",
-        ", weird",
-    ],
+eurosat_factor_templates = {
+    "condition": {
+        "normal": [""],
+        "cool": ["cool"],
+        "nice": ["nice"],
+        "weird": ["weird"],
+    },
+    "source": {
+        "others": [""],
+        "nasa": ["by NASA"],
+        "google_earth": ["by Google Earth"],
+    },
 }
+
 
 eurosat_factor_templates_gpt = {
     "source": [

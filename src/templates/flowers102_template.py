@@ -6,28 +6,29 @@ flowers102_main_template = [
     lambda c: f'a photo of a {c}, a type of flower'
 ]
 
+
 flowers102_factor_templates = {
-    "background": [
-        "",
-        ", in the forest",
-        ', in the garden',
-        ", on water",
-        ", with dark background",
-    ],
-    "illumination": [
-        "",
-        ", sunny",
-        ", dark",
-    ],
-    "condition": [
-        "",
-        ", cool",
-        ", nice",
-        ", weird",
-    ],
-    "quality": [
-        "",
-        ", low resolution",
-        ", high resolution",
-    ],
+    "background": {
+        "others": [""],
+        "forest": ["in the forest"],
+        "garden": ["in the garden"],
+        "water": ["on water"],
+        "dark_background": ["with dark background"],
+    },
+    "illumination": {
+        "normal": [""],
+        "bright": ["sunny", "bright"],
+        "dark": ["dark", "dim"],
+    },
+    "condition": {
+        "normal": [""],
+        "cool": ["cool"],
+        "nice": ["nice"],
+        "weird": ["weird"],
+    },
+    "quality": {
+        "others": [""],
+        "high-res": ["high resolution"],
+        "low-res": ["low resolution"],
+    },
 }

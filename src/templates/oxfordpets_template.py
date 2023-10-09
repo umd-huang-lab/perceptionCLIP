@@ -7,36 +7,36 @@ oxfordpets_main_template = [
 ]
 
 oxfordpets_factor_templates = {
-    "species": [
-        "",
-        ", dog",
-        ", cat",
-    ],
-    "background": [
-        "",
-        ", indoors",
-        ", outdoors",
-        ", on a bed",
-        ", on a couch",
-        ", at the beach",
-        ", in a park",
-        ", on grass",
-        ", in a tree",
-    ],
-    "pose": [
-        "",
-        ", sitting",
-        ", running",
-        ", sleeping",
-        ", eating",
-        ", playing",
-    ],
-    "interaction": [
-        "",
-        ", interacting with another pet",
-        ", interacting with a person",
-        ", playing with a toy",
-        ", being held",
-        ", being petted",
-    ],
+    "species": {
+        "others": [""],
+        "dog": ["dog"],
+        "cat": ["cat"],
+    },
+    "background": {
+        "others": [""],
+        "indoors": ["indoors"],
+        "outdoors": ["outdoors"],
+        "bed": ["on a bed"],
+        "couch": ["on a couch"],
+        "beach": ["at the beach"],
+        "park": ["in a park"],
+        "grass": ["on grass"],
+        "tree": ["on a tree"],
+    },
+    "pose": {
+        "others": [""],
+        "sitting": ["sitting"],
+        "running": ["running"],
+        "sleeping": ["sleeping"],
+        "eating": ["eating"],
+        "playing": ["playing"],
+    },
+    "interaction": {
+        "others": [""],
+        "pet_interaction": ["interacting with another pet"],
+        "human_interaction": ["interacting with a person"],
+        "toy": ["playing with a toy"],
+        "held": ["being held"],
+        "petted": ["being petted"],
+    },
 }
