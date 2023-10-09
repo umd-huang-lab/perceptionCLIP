@@ -11,8 +11,7 @@ infer_mode=$6
 convert_text=$7
 save_name=$8
 
-#temperature=(0.8 1 2 3 4 5 10 100 1000)
-temperature=(2 3 4 100 1000)
+temperature=(1 3 5 10)
 
 for i in "${temperature[@]}"; do
 
