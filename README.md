@@ -1,4 +1,4 @@
-# More Context, Less Distraction: Visual Classification by Inferring and Conditioning on Contextual Attributes
+# More Context, Less Distraction: Zero-shot Visual Classification by Inferring and Conditioning on Contextual Attributes
 
 by [Bang An*](https://bangann.github.io/), [Sicheng Zhu*](https://schzhu.github.io/)
 , [Michael-Andrei Panaitescu-Liess](https://scholar.google.se/citations?user=MOP6lhkAAAAJ&hl=lv)
@@ -11,20 +11,20 @@ by [Bang An*](https://bangann.github.io/), [Sicheng Zhu*](https://schzhu.github.
 
 <img src="intro.png" alt="Alt text" width="100%" />
 
-CLIP, as a foundational vision language model, is widely used in zero-shot image classification due
-to its ability to understand various visual concepts and natural language descriptions. However, how
-to fully leverage CLIP's unprecedented human-like understanding capabilities to achieve better
-zero-shot classification is still an open question. This paper draws inspiration from the human
-visual perception process: a modern neuroscience view suggests that in classifying an object, humans
-first infer its class-independent attributes (e.g., background and orientation) which help separate
-the foreground object from the background, and then make decisions based on this information.
-Inspired by this, we observe that providing CLIP with contextual attributes improves zero-shot
-classification and mitigates reliance on spurious features. We also observe that CLIP itself can
-reasonably infer the attributes from an image. With these observations, we propose a training-free,
-two-step zero-shot classification method named **PerceptionCLIP**. Given an image, it first infers
-contextual attributes (e.g., background) and then performs object classification conditioning on
-them. Our experiments show that PerceptionCLIP achieves better generalization, group robustness, and
-better interpretability. For example, PerceptionCLIP with ViT-L/14 improves the worst group accuracy
+Vision-language models like CLIP are widely used in zero-shot image classification due to their
+ability to understand various visual concepts and natural language descriptions. However, how to
+fully leverage CLIP's unprecedented human-like understanding capabilities to achieve better
+performance is still an open question. This paper draws inspiration from the human visual perception
+process: when classifying an object, humans first infer contextual attributes (e.g., background and
+orientation) which help separate the foreground object from the background, and then classify the
+object based on this information. Inspired by it, we observe that providing CLIP with contextual
+attributes improves zero-shot image classification and mitigates reliance on spurious features. We
+also observe that CLIP itself can reasonably infer the attributes from an image. With these
+observations, we propose a training-free, two-step zero-shot classification method PerceptionCLIP.
+Given an image, it first infers contextual attributes (e.g., background) and then performs object
+classification conditioning on them. Our experiments show that PerceptionCLIP achieves better
+generalization, group robustness, and interpretability. For example, PerceptionCLIP with ViT-L/14
+improves the worst group accuracy
 by 16.5% on the Waterbirds dataset and by 3.5% on CelebA.
 
 ## Setup
@@ -156,10 +156,11 @@ python src/zero_shot_inference/perceptionclip_two_step.py --model=RN50 --dataset
 
 ## Visualizations
 
-We use Grad-CAM for visualizations. Specifically, we consider the softmax output of the target class 
-and do backpropagation until the targeted layer. 
+We use Grad-CAM for visualizations. Specifically, we consider the softmax output of the target class
+and do backpropagation until the targeted layer.
 Note that this is different from using attentions for visualizations.
-We use such visualizations to see if the model relies more on the core features when the description of the spurious ones is given while doing
+We use such visualizations to see if the model relies more on the core features when the description
+of the spurious ones is given while doing
 classification.
 Also, this way, adding a spurious attribute’s description won’t really make the model look at it
 when classifying because all the descriptions (for all classes) will contain that attribute.
