@@ -13,6 +13,10 @@ waterbirds_background_template = [
 
 
 waterbirds_factor_templates = {
+    "simple_background": {
+        "land": ["on land"],
+        "water": ["on water"],
+    },
     "background": {
         "others": [""],
         "land": ["on land"],
