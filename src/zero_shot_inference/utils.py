@@ -184,7 +184,14 @@ def template_convert(template, convert_text):
     Convert template to pure texts.
     Example for delete_text is ' of a '
     """
-    return [func(convert_text) for func in template]
+    # if template is a list of functions
+    if callable(template[0]):
+        return [func(convert_text) for func in template]
+    # if template is a list of list of functions
+    elif isinstance(template[0], list):
+        return [[func(convert_text) for func in inner_list] for inner_list in template]
+    else:
+        raise ValueError("Invalid template format")
 
 
 def randomize_text(text):
@@ -273,5 +280,74 @@ def compose_template(org_templates, factor_templates, selected_factors):
         new_templates.append(
             lambda c, main=org_templates[0], factors=factors: main(c) + ''.join(factors) + "."
         )
+
+    return new_templates
+
+
+def generate_composite_factors(templates, selected_factors=None):
+    """
+    templates: a dictionary of contextual factors with the following format
+    templates = {
+        "factor_1": {
+            "value_1": ["description_1", "description_2", "description_3"],
+            "value_2": ["description_1", "description_2", "description_3"],
+            }
+        "factor_2": {
+            "value_1": ["description_1", "description_2", "description_3"],
+            "value_2": ["description_1", "description_2", "description_3"],
+            "value_3": ["description_1", "description_2", "description_3"],
+            }
+        }
+    selected_factors: a list of factors that we would like to compose
+    """
+    # If selected_factors is provided, filter out the keys that are not in the list
+    if selected_factors:
+        templates = {k: templates[k] for k in selected_factors if k in templates}
+
+    # Base case: if the templates dictionary is empty, return a dictionary with a single empty entry
+    if not templates:
+        return {"": [""]}
+
+    # Extract the first key-value pair from the templates dictionary
+    key, sub_dict = next(iter(templates.items()))
+
+    # Create a copy of the templates dictionary without the extracted key
+    rest_templates = {k: v for k, v in templates.items() if k != key}
+
+    composite = {}
+
+    # Iterate over each sub_key and its associated values in the sub_dict
+    for sub_key, values in sub_dict.items():
+        # Recursively generate composite conditions for the rest of the templates
+        for rest_key, rest_values in generate_composite_factors(rest_templates).items():
+            # Construct the new composite key
+            new_key = f"{sub_key}_{rest_key}" if rest_key else sub_key
+
+            # Combine every value from the current list with every value from the recursive results
+            # Add commas during composition, but ensure we don't add unnecessary commas for empty values
+            combined_values = [v + (", " + rv if rv else "") if v else rv for v in values for rv in rest_values]
+            composite[new_key] = combined_values
+
+    return composite
+
+
+def compose_template(org_templates, factor_templates):
+    factor_templates = [factor_templates[category] for category in factor_templates]
+    new_templates = []
+    for factors in factor_templates:
+        new_factors = []
+        for descriptions in factors:
+            if descriptions:
+                new_factors.append(
+                    lambda c, main=org_templates[0], descriptions=descriptions: main(
+                        c) + ', ' + descriptions + "."
+                )
+            else:
+                new_factors.append(
+                    lambda c, main=org_templates[0], descriptions=descriptions: main(
+                        c) + "."
+                )
+
+        new_templates.append(new_factors)
 
     return new_templates

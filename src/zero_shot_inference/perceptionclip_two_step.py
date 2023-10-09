@@ -200,29 +200,31 @@ def main(args):
     if args.factors is not None:
         main_template = getattr(templates, args.main_template)
         factor_templates = getattr(templates, args.factor_templates)
-        template_list = compose_template(main_template, factor_templates, args.factors)
+
+        factor_templates = generate_composite_factors(factor_templates,
+                                                      selected_factors=args.factors)
+        template_list = compose_template(main_template, factor_templates)
     else:
-        template_list = getattr(templates,
-                            args.template)  # todo: here, we only consider the case where one factor value has only one text description. Need to extendent to multiple descriptions.
+        raise Exception('Please provide factor names!')
 
     # create classifier
     if args.infer_mode == 0:
         # w/ y
         args.num_factor_value = len(template_list)
-        classification_head = get_zeroshot_classifier_flat(args, model.model,
-                                                           dataset.classnames,
-                                                           template_list)
+        classification_head = get_zeroshot_classifier_flat_advance(args, model.model,
+                                                                   dataset.classnames,
+                                                                   template_list)
         factor_head = None
 
     elif args.infer_mode == 1:
         # w/o y
         template_list_woy = template_convert(template_list, args.convert_text)
         args.num_factor_value = len(template_list)
-        factor_head = get_zeroshot_classifier_puretext(args, model.model,
-                                                       template_list_woy)
-        classification_head = get_zeroshot_classifier_flat(args, model.model,
-                                                           dataset.classnames,
-                                                           template_list)
+        factor_head = get_zeroshot_classifier_puretext_advance(args, model.model,
+                                                               template_list_woy)
+        classification_head = get_zeroshot_classifier_flat_advance(args, model.model,
+                                                                   dataset.classnames,
+                                                                   template_list)
         factor_head = factor_head.cuda()
 
     classification_head = classification_head.cuda()
@@ -332,13 +334,13 @@ def classify(model, classification_head, dataset, args, factor_head=None):
         acc = group_correct.sum() / group_cnt.sum() * 100
         group_acc = torch.nan_to_num(group_correct / group_cnt) * 100
         worst_acc = group_acc.min()
-        print(f"Avg Accuracy: {acc.item():.2f} | Worst Accuracy: {worst_acc.item():.2f} | Group Acc: {group_acc.tolist()}")
+        print(
+            f"Avg Accuracy: {acc.item():.2f} | Worst Accuracy: {worst_acc.item():.2f} | Group Acc: {group_acc.tolist()}")
         return acc.item(), worst_acc.item(), group_acc.tolist()
     else:
         top1 = correct / n
         print(f"Accuracy: {top1}")
         return top1
-
 
 
 if __name__ == '__main__':
