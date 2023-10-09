@@ -196,9 +196,9 @@ sh scripts/srun_twostep_compose.sh ImageNet ViT-B/16 imagenet_main_template imag
 sh scripts/srun_twostep_compose.sh ImageNet ViT-B/16 imagenet_main_template imagenet_factor_templates tool 0 object imagnet_ours_wy_vit16
 
 # composition of attributes
-sh scripts/srun_twostep_compose.sh ImageNet ViT-B/16 imagenet_main_template imagenet_factor_templates condition,quality 0 object imagnet_ours_wy_vit16
-sh scripts/srun_twostep_compose.sh ImageNet ViT-B/16 imagenet_main_template imagenet_factor_templates condition,quality,perspective 0 object imagnet_ours_wy_vit16
-sh scripts/srun_twostep_compose.sh ImageNet ViT-B/16 imagenet_main_template imagenet_factor_templates condition,quality,perspective,background 0 object imagnet_ours_wy_vit16
+sh scripts/srun_twostep_compose.sh ImageNet ViT-B/16 imagenet_main_template imagenet_factor_templates quality,condition 0 object imagnet_ours_wy_vit16
+sh scripts/srun_twostep_compose.sh ImageNet ViT-B/16 imagenet_main_template imagenet_factor_templates background,quality,condition 0 object imagnet_ours_wy_vit16
+sh scripts/srun_twostep_compose.sh ImageNet ViT-B/16 imagenet_main_template imagenet_factor_templates perspective,background,quality,condition 0 object imagnet_ours_wy_vit16
 
 ###################### PerceptionCLIP improves zero-shot generalization on domain datasets (Table 5) ######################
 # For every dataset, we measure:
