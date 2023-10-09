@@ -239,15 +239,15 @@ sh scripts/srun_waterbirds_ours_onestep.sh waterbirds_simple_template  RN50     
 sh scripts/srun_waterbirds_ours_onestep.sh waterbirds_simple_template  ViT-L/14  waterbirds_simple_vit14
 
 # simple background
-sh scripts/srun_waterbirds_ours_twostep.sh waterbirds_background_template  ViT-B/32  0  waterbirds_ours_wy_vit32
-sh scripts/srun_waterbirds_ours_twostep.sh waterbirds_background_template  ViT-B/16  0  waterbirds_ours_wy_vit16
-sh scripts/srun_waterbirds_ours_twostep.sh waterbirds_background_template  RN50      0  waterbirds_ours_wy_RN50
-sh scripts/srun_waterbirds_ours_twostep.sh waterbirds_background_template  ViT-L/14      0  waterbirds_ours_wy_vit14
+sh scripts/srun_waterbirds_ours_twostep_compose.sh simple_background  ViT-B/32  0  waterbirds_ours_wy_vit32
+sh scripts/srun_waterbirds_ours_twostep_compose.sh simple_background  ViT-B/16  0  waterbirds_ours_wy_vit16
+sh scripts/srun_waterbirds_ours_twostep_compose.sh simple_background  RN50      0   waterbirds_ours_wy_RN50
+sh scripts/srun_waterbirds_ours_twostep_compose.sh simple_background  ViT-L/14  0  waterbirds_ours_wy_vit14
 
-sh scripts/srun_waterbirds_ours_twostep.sh waterbirds_background_template  ViT-B/32  1  waterbirds_ours_woy_vit32
-sh scripts/srun_waterbirds_ours_twostep.sh waterbirds_background_template  ViT-B/16  1  waterbirds_ours_woy_vit16
-sh scripts/srun_waterbirds_ours_twostep.sh waterbirds_background_template  RN50      1  waterbirds_ours_woy_RN50
-sh scripts/srun_waterbirds_ours_twostep.sh waterbirds_background_template  ViT-L/14      1  waterbirds_ours_woy_vit14
+sh scripts/srun_waterbirds_ours_twostep_compose.sh simple_background  ViT-B/32  1  waterbirds_ours_woy_vit32
+sh scripts/srun_waterbirds_ours_twostep_compose.sh simple_background  ViT-B/16  1  waterbirds_ours_woy_vit16
+sh scripts/srun_waterbirds_ours_twostep_compose.sh simple_background  RN50      1   waterbirds_ours_woy_RN50
+sh scripts/srun_waterbirds_ours_twostep_compose.sh simple_background  ViT-L/14  1  waterbirds_ours_woy_vit14
 
 # complex background
 sh scripts/srun_waterbirds_ours_twostep_compose.sh background  ViT-B/32  0  waterbirds_ours_wy_vit32_factor
@@ -269,15 +269,15 @@ sh scripts/srun_celeba_ours_onestep.sh celeba_simple_template  RN50      celeba_
 sh scripts/srun_celeba_ours_onestep.sh celeba_simple_template  ViT-L/14  celeba_simple_vit14
 
 # PerceptionCLIP w/ gender
-sh scripts/srun_celeba_ours_twostep.sh celeba_gender_template  ViT-B/32  0  celeba_ours_wy_vit32
-sh scripts/srun_celeba_ours_twostep.sh celeba_gender_template  ViT-B/16  0  celeba_ours_wy_vit16
-sh scripts/srun_celeba_ours_twostep.sh celeba_gender_template  RN50      0  celeba_ours_wy_RN50
-sh scripts/srun_celeba_ours_twostep.sh celeba_gender_template  ViT-L/14  0  celeba_ours_wy_vit14
+sh scripts/srun_celeba_ours_twostep_compose.sh gender  ViT-B/32  0  celeba_ours_wy_vit32_factor
+sh scripts/srun_celeba_ours_twostep_compose.sh gender  ViT-B/16  0  celeba_ours_wy_vit16_factor
+sh scripts/srun_celeba_ours_twostep_compose.sh gender  RN50      0   celeba_ours_wy_RN50_factor
+sh scripts/srun_celeba_ours_twostep_compose.sh gender  ViT-L/14  0  celeba_ours_wy_vit14_factor
 
-sh scripts/srun_celeba_ours_twostep.sh celeba_gender_template  ViT-B/32  1  celeba_ours_woy_vit32
-sh scripts/srun_celeba_ours_twostep.sh celeba_gender_template  ViT-B/16  1  celeba_ours_woy_vit16
-sh scripts/srun_celeba_ours_twostep.sh celeba_gender_template  RN50      1  celeba_ours_woy_RN50
-sh scripts/srun_celeba_ours_twostep.sh celeba_gender_template  ViT-L/14  1  celeba_ours_woy_vit14
+sh scripts/srun_celeba_ours_twostep_compose.sh gender  ViT-B/32  1  celeba_ours_woy_vit32_factor
+sh scripts/srun_celeba_ours_twostep_compose.sh gender  ViT-B/16  1  celeba_ours_woy_vit16_factor
+sh scripts/srun_celeba_ours_twostep_compose.sh gender  RN50      1   celeba_ours_woy_RN50_factor
+sh scripts/srun_celeba_ours_twostep_compose.sh gender  ViT-L/14  1  celeba_ours_woy_vit14_factor
 
 # PerceptionCLIP w/ gender + age
 sh scripts/srun_celeba_ours_twostep_compose.sh gender,age  ViT-B/32  0  celeba_ours_wy_vit32_factor
