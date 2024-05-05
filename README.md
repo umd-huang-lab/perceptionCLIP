@@ -181,12 +181,12 @@ authors for releasing the source code.
 If you find our work helpful, please cite it with:
 
 ```bibtex
-@misc{an2023context,
-      title={More Context, Less Distraction: Visual Classification by Inferring and Conditioning on Contextual Attributes}, 
-      author={Bang An and Sicheng Zhu and Michael-Andrei Panaitescu-Liess and Chaithanya Kumar Mummadi and Furong Huang},
-      year={2023},
-      eprint={2308.01313},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{
+an2024perceptionclip,
+title={Perception{CLIP}: Visual Classification by Inferring and Conditioning on Contexts},
+author={Bang An and Sicheng Zhu and Michael-Andrei Panaitescu-Liess and Chaithanya Kumar Mummadi and Furong Huang},
+booktitle={The Twelfth International Conference on Learning Representations},
+year={2024},
+url={https://openreview.net/forum?id=2Oiee202rd}
 }
 ```
