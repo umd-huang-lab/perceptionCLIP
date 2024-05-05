@@ -1,4 +1,4 @@
-# More Context, Less Distraction: Zero-shot Visual Classification by Inferring and Conditioning on Contextual Attributes
+# PerceptionCLIP: Visual Classification by Inferring and Conditioning on Contexts
 
 by [Bang An*](https://bangann.github.io/), [Sicheng Zhu*](https://schzhu.github.io/)
 , [Michael-Andrei Panaitescu-Liess](https://scholar.google.se/citations?user=MOP6lhkAAAAJ&hl=lv)
